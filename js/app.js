@@ -4,6 +4,8 @@
 	// grab elements
 
 	var body = document.getElementsByTagName('body');
+	var wrapper = document.getElementById('wrapper');
+	var secondsBar = document.getElementById('seconds-bar');
 
 	var hours = document.getElementById('hours');
 	var minutes = document.getElementById('minutes');
@@ -12,7 +14,7 @@
 	// console.log(hours, minutes, seconds);
 
 	var currentTime;
-	
+
 	function logCurrentTime(){
 
 		currentTime = new Date();
@@ -23,21 +25,66 @@
 
 		// console.log(hour + ':' + minute + ':' + second);
 
-		return [hour, minute, second];
+		// return [hour, minute, second];
 
+		return {
+						hour : hour,
+						minute : minute,
+						second : second
+					 }
+	}
+
+	function padZero(num){
+		var paddedNum = ("0" + num).slice(-2)
+		return paddedNum;
+	}
+
+	function convertToHex(num){
+		var hexify = num.toString(16);
+		return hexify;
 	}
 
 	function displayTime(){
 		var timeLog = logCurrentTime();
 
-		hours.textContent = ("0" + timeLog[0]).slice(-2);
-		minutes.textContent = ("0" + timeLog[1]).slice(-2);
-		seconds.textContent = ("0" + timeLog[2]).slice(-2);
+		hours.textContent = padZero(timeLog.hour);
+		minutes.textContent = padZero(timeLog.minute);
+		seconds.textContent = padZero(timeLog.second);
 
 	}
 
+	function displayColor() {
+		var timeLog = logCurrentTime();
 
-	window.setInterval(displayTime, 1000)
+		var hex = "#";
+				hex += convertToHex(timeLog.hour);
+				hex += convertToHex(timeLog.minute);
+				hex += convertToHex(timeLog.second);
+
+		wrapper.style.backgroundColor = hex;
+		console.log("applying color: " + hex )
+
+	}
+
+	function growSecondsBar(){
+		var currentTime = logCurrentTime();
+		var seconds = currentTime.second;
+
+
+
+		secondsBar.style.width = (seconds / 60) * 100 + '%';
+	}
+
+
+
+	// cease the 1 second lag on load 
+	window.addEventListener('load', displayTime);
+	window.addEventListener('load', displayColor);
+	
+	// set timers on the window object
+	window.setInterval(displayTime, 1000);
+	window.setInterval(displayColor, 1000);
+	window.setInterval(growSecondsBar, 1000);
 	
 
 
