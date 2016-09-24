@@ -121,7 +121,7 @@
 		var hex = '#' + convertTimeToHex().hexPercent;
 		var hex2 = '#' + convertTimeToHex().hexNormal;
 
-		wrapper.setAttribute('style', 'background-image : radial-gradient(circle 50vw, ' + hex2 + ' 0%, ' + hex + ' 100%)');
+		wrapper.setAttribute('style', 'background-image : radial-gradient(circle 50vw, ' + hex + ' 0%, ' + hex2 + ' 100%)');
 
 	}
 
@@ -156,7 +156,7 @@
 	}
 
 	function switchToNumberClockHandler(){ // hide hex clock, show numclock
-		
+
 		if(hexClock.classList.contains('showing')){
 			hexClock.classList.remove('showing');
 			hexClock.classList.add('hidden');

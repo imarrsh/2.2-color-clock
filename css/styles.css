@@ -1,12 +1,13 @@
 body, h1 {
   margin: 0;
   padding: 0;
-  font-family: sans-serif; }
+  font-family: 'Handlee', 'Helvetica', sans-serif; }
 
 .wrapper {
   positon: relative;
   height: 100vh;
-  text-align: center; }
+  text-align: center;
+  transition: background-image 1000ms ease-in-out; }
 
 h1 {
   color: #ffffff;
@@ -22,19 +23,21 @@ h1 {
     content: ':';
     margin-right: 5%; }
 
-.clock-body #numbers-clock {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80vw; }
+.clock-body {
+  line-height: 1; }
+  .clock-body #numbers-clock {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw; }
 
 #seconds-bar {
   margin: 0 auto;
   background-color: #ffffff;
   min-height: 3px;
   width: 0;
-  border-radius: 1px;
+  border-radius: 2px;
   transition: all 200ms ease-in-out; }
 
 .animating {
