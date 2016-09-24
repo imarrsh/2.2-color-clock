@@ -6,9 +6,13 @@
 	// var body = document.getElementsByTagName('body');
 	var wrapper = document.getElementById('wrapper');
 	var secondsBar = document.getElementById('seconds-bar');
-	var numClock = document.getElementById('number-clock');
-	var temp = document.getElementById('temp');
+	var clockBody = document.getElementById('clock-body');
+	
+	// drill down and get both clocks
+	var numbersClock = clockBody.querySelector('#numbers-clock');
+	var hexClock = clockBody.querySelector('#hex-clock');
 
+	// get the clock elements
 	var hours = document.getElementById('hours');
 	var minutes = document.getElementById('minutes');
 	var seconds = document.getElementById('seconds');
@@ -116,16 +120,28 @@
 		var seconds = currentTime.second;
 
 		secondsBar.style.width = (seconds / 60) * 100 + '%';
+
 	}
 
-	function switchToHexClock(){
+	function switchToHexClock(){ // hide num clock, show hex clock
 		console.log('mouseenter heard');
-		numClock.classList.add('hidden');
+
+		if (clockBody.classList.contains('showing')){
+			clockBody.classList.remove('showing');
+			clockBody.classList.add('hidden');
+		} else {
+			clockBody.classList.add('hidden');
+		}
 	}
 
-	function switchToNumberClock(){
+	function switchToNumberClock(){ // hide hex clock, show numclock
 		console.log('mouseout heard');
-		numClock.classList.add('visible');
+		if(clockBody.classList.contains('hidden')){
+			clockBody.classList.remove('hidden');
+			clockBody.classList.add('showing');
+		} else {
+			clockBody.classList.add('showing');
+		}
 
 	}
 
@@ -142,8 +158,8 @@
 	// set timer on the window object
 	window.setInterval(colorClock, 1000);
 
-	numClock.addEventListener('mouseenter', switchToHexClock);
-	numClock.addEventListener('mouseout', switchToNumberClock);
+	clockBody.addEventListener('mouseenter', switchToHexClock);
+	clockBody.addEventListener('mouseout', switchToNumberClock);
 
 	
 }());

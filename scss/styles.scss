@@ -6,7 +6,6 @@ body, h1 {
 
 .wrapper {
 	positon: relative;
-
 	height: 100vh;
 	text-align: center;
 }
@@ -36,12 +35,22 @@ h1 {
 	background-color: #ffffff;
 	min-height: 3px;
 	width: 0;
+	transform: scaleX(1);
+	transisition: all 200ms ease;
+	.animating {
+		transform: scaleX(1.2);
+	}
 }
+
+// animation classes
 
 .hidden {
 	opacity: 0;
+	transition: all 200ms ease-in-out;
 }
 
 .showing {
 	opacity: 1;
+	transition: all 200ms ease-in-out;
 }
+
