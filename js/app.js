@@ -3,9 +3,11 @@
 
 	// grab elements
 
-	var body = document.getElementsByTagName('body');
+	// var body = document.getElementsByTagName('body');
 	var wrapper = document.getElementById('wrapper');
 	var secondsBar = document.getElementById('seconds-bar');
+	var numClock = document.getElementById('number-clock');
+	var temp = document.getElementById('temp');
 
 	var hours = document.getElementById('hours');
 	var minutes = document.getElementById('minutes');
@@ -46,14 +48,21 @@
 		var currentMinute = logCurrentTime().minute;
 		var currentSecond = logCurrentTime().second;
 
+		// use the actual time values to create a hex
+		var currentHourBase16 = currentHour.toString(16);
+		var currentMinuteBase16 = currentMinute.toString(16);
+		var currentSecondBase16 = currentSecond.toString(16);
+
+		var hexNormal =  padZero(currentHourBase16);
+			  hexNormal += padZero(currentMinuteBase16);
+			  hexNormal += padZero(currentSecondBase16);
+		
+		// find time percentages
 		// set up ms values
 		var msDay = 3600000 * 24;
 		var msHour = 60000 * 60;
 		var msMinute = 60000;
 		var msSecond = 1000;
-
-		
-		// find time percentages
 		// find the percentage of day completed
 		var percentOfDayCompleteBase16 = 		(Math.floor(((currentHour * msHour)/ msDay) * 100))
 																						 .toString(16);
@@ -64,15 +73,15 @@
 		var percentOfMinuteCompleteBase16 = (Math.floor(((currentSecond * msSecond) / msMinute) * 100))
 																						 .toString(16);
 		// make hex code based off of percentages
-		var hexCat = '#';
-				hexCat += padZero(percentOfDayCompleteBase16);
-				hexCat += padZero(percentOfHourCompleteBase16);
-				hexCat += padZero(percentOfMinuteCompleteBase16);
+		var hexPercent =  padZero(percentOfDayCompleteBase16);
+				hexPercent += padZero(percentOfHourCompleteBase16);
+				hexPercent += padZero(percentOfMinuteCompleteBase16);
 
-				console.log(hexCat);
+				// console.log(hexPercent + ' ' + hexNormal);
 		
 		return {
-						hexPercent: hexCat
+						hexNormal: hexNormal,
+						hexPercent: hexPercent
 					 };
 	}
 
@@ -91,12 +100,13 @@
 		var minText = minutes.textContent;
 		var secText = seconds.textContent;
 
-		var hex = convertTimeToHex().hexPercent;
+		var hex = '#' + convertTimeToHex().hexPercent;
+		var hex2 = '#' + convertTimeToHex().hexNormal;
 		 		// hex += convertToHex(minText);
 		 		// hex += convertToHex(secText);
 
-		wrapper.setAttribute('style', 'background-color:' + hex);
-		console.log("applying color: " + hex );
+		wrapper.setAttribute('style', 'background-image : radial-gradient(circle 50vw, ' + hex2 + ' 0%, ' + hex + ' 100%)');
+		// console.log("applying color: " + hex );
 		// console.log("applying color: " + hex );
 
 	}
@@ -108,6 +118,9 @@
 		secondsBar.style.width = (seconds / 60) * 100 + '%';
 	}
 
+	function switchToHexClock(){
+		
+	}
 
 // group all function calls into one function
 	function colorClock(){
@@ -117,19 +130,12 @@
 	}
 
 
-
-	// initialize the clock on load 
-	// window.addEventListener('load', displayTime);
-	// window.addEventListener('load', setColor);
+	// initialize the clock on load
 	window.addEventListener('load', colorClock);
-	
-	// set timers on the window object
-	// window.setInterval(displayTime, 1000);
-	// window.setInterval(setColor, 1000);
-	// window.setInterval(growSecondsBar, 1000);
+	// set timer on the window object
 	window.setInterval(colorClock, 1000);
+
+	numClock.addEventListener('mouseenter', switchToHexClock);
+
 	
-
-
-
 }());

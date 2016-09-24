@@ -24,4 +24,10 @@ h1 {
   min-height: 3px;
   width: 0; }
 
+.hidden {
+  opacity: 0; }
+
+.showing {
+  opacity: 1; }
+
 /*# sourceMappingURL=styles.css.map */
