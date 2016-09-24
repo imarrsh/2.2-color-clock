@@ -119,7 +119,14 @@
 	}
 
 	function switchToHexClock(){
-		
+		console.log('mouseenter heard');
+		numClock.classList.add('hidden');
+	}
+
+	function switchToNumberClock(){
+		console.log('mouseout heard');
+		numClock.classList.add('visible');
+
 	}
 
 // group all function calls into one function
@@ -136,6 +143,7 @@
 	window.setInterval(colorClock, 1000);
 
 	numClock.addEventListener('mouseenter', switchToHexClock);
+	numClock.addEventListener('mouseout', switchToNumberClock);
 
 	
 }());

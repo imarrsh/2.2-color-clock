@@ -4,16 +4,20 @@ body, h1 {
   font-family: sans-serif; }
 
 .wrapper {
+  positon: relative;
   height: 100vh;
-  padding-top: 10vh;
   text-align: center; }
 
 h1 {
   color: #ffffff;
   text-align: center;
-  font-size: 16vw;
-  display: inline-block;
-  margin: 0 auto; }
+  font-size: 15vw;
+  width: 76vw;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
   h1 span:not(:first-child):before {
     content: ':';
     margin-right: 5%; }
