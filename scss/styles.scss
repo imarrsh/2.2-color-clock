@@ -36,22 +36,23 @@ h1 {
 
 .clock-body {
 	font-size: 0;
-	#numbers-clock {
+	#numbers-clock, #hex-clock {
 		position: absolute;
 		top: 0;
 		left: 50%;
 		transform: translateX(-50%);
-		width: 80vw;
+		width: 100%;
 	}
 	span {
 		line-height: 1.2;
 		display: inline-block;
-		font-size: 15vw;
+		font-size: 16vw;
+		font-weight: 600;
 	}
 }
 
 #seconds-bar {
-	margin: 0 auto;
+	margin: 25% auto 0;
 	background-color: #ffffff;
 	min-height: 3px;
 	width: 0;
