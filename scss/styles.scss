@@ -1,8 +1,9 @@
 body, h1 {
 	margin: 0;
 	padding: 0;
-	font-family: 'Handlee', 'Helvetica', sans-serif;
-
+	font-family: 'Patrick Hand', 'Helvetica', sans-serif;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
 }
 
 .wrapper {
@@ -26,7 +27,7 @@ h1 {
 		&:not(:first-child) {
 			&:before {
 				content: ':';
-				margin-right: 5%;
+				margin-right: 4%;
 			}
 		}
 	}
