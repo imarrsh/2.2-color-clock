@@ -1,8 +1,13 @@
+@font-face {
+  font-family: 'action_manregular';
+  src: url("../fonts/Action_Man-webfont.eot");
+  src: url("../fonts/Action_Man-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Action_Man-webfont.woff") format("woff"), url("../fonts/Action_Man-webfont.ttf") format("truetype"), url("../fonts/Action_Man-webfont.svg#action_manregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 body, h1 {
   margin: 0;
   padding: 0;
-  font-family: 'Patrick Hand', 'Helvetica', sans-serif;
-  letter-spacing: 0.1em;
+  font-family: 'action_manregular', 'Helvetica', sans-serif;
   text-transform: uppercase; }
 
 .wrapper {
@@ -14,7 +19,6 @@ body, h1 {
 h1 {
   color: #ffffff;
   text-align: center;
-  font-size: 15vw;
   width: 80vw;
   margin: 0 auto;
   position: absolute;
@@ -23,16 +27,21 @@ h1 {
   transform: translate(-50%, -50%); }
   h1 span:not(:first-child):before {
     content: ':';
-    margin-right: 4%; }
+    margin-right: 10%;
+    margin-left: 10%; }
 
 .clock-body {
-  line-height: 1; }
+  font-size: 0; }
   .clock-body #numbers-clock {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 80vw; }
+  .clock-body span {
+    line-height: 1.2;
+    display: inline-block;
+    font-size: 15vw; }
 
 #seconds-bar {
   margin: 0 auto;
