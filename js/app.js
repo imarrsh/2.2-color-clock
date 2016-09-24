@@ -123,24 +123,38 @@
 
 	}
 
-	function switchToHexClock(){ // hide num clock, show hex clock
-		console.log('mouseenter heard');
+	function switchToHexClockHandler(){ // hide num clock, show hex clock
+		console.log('mouseover heard');
 
-		if (clockBody.classList.contains('showing')){
-			clockBody.classList.remove('showing');
-			clockBody.classList.add('hidden');
+		if (numbersClock.classList.contains('showing')){
+			numbersClock.classList.remove('showing');
+			numbersClock.classList.add('hidden');
+			
+			if(hexClock.classList.contains('hidden')){
+				hexClock.classList.remove('hidden');
+				hexClock.classList.add('showing');
+			}
+
 		} else {
-			clockBody.classList.add('hidden');
+			numbersClock.classList.add('hidden');
+			hexClock.classList.add('showing');
 		}
 	}
 
-	function switchToNumberClock(){ // hide hex clock, show numclock
+	function switchToNumberClockHandler(){ // hide hex clock, show numclock
 		console.log('mouseout heard');
-		if(clockBody.classList.contains('hidden')){
-			clockBody.classList.remove('hidden');
-			clockBody.classList.add('showing');
+		if(hexClock.classList.contains('showing')){
+			hexClock.classList.remove('showing');
+			hexClock.classList.add('hidden');
+
+			if(numbersClock.classList.contains('hidden')){
+				numbersClock.classList.remove('hidden')
+				numbersClock.classList.add('showing');	
+			}
+
 		} else {
-			clockBody.classList.add('showing');
+			numbersClock.classList.add('showing');
+			hexClock.classList.add('hidden');
 		}
 
 	}
@@ -158,8 +172,8 @@
 	// set timer on the window object
 	window.setInterval(colorClock, 1000);
 
-	clockBody.addEventListener('mouseenter', switchToHexClock);
-	clockBody.addEventListener('mouseout', switchToNumberClock);
+	clockBody.addEventListener('mouseover', switchToHexClockHandler);
+	clockBody.addEventListener('mouseout', switchToNumberClockHandler);
 
 	
 }());

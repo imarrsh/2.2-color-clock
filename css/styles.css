@@ -34,10 +34,10 @@ h1 {
 
 .hidden {
   opacity: 0;
-  transition: all 200ms ease-in-out; }
+  transition: opacity 200ms ease-in-out; }
 
 .showing {
   opacity: 1;
-  transition: all 200ms ease-in-out; }
+  transition: opacity 200ms ease-in-out; }
 
 /*# sourceMappingURL=styles.css.map */
