@@ -1,5 +1,5 @@
 (function(){
-	"use strict"
+	"use strict";
 
 	// grab elements
 
@@ -7,7 +7,7 @@
 	var wrapper = document.getElementById('wrapper');
 	var secondsBar = document.getElementById('seconds-bar');
 	var clockBody = document.getElementById('clock-body');
-	
+
 	// drill down and get both clocks
 	var numbersClock = clockBody.querySelector('#numbers-clock');
 	var hexClock = clockBody.querySelector('#hex-clock');
@@ -41,7 +41,7 @@
 						hour : hour,
 						minute : minute,
 						second : second
-					 }
+					};
 	}
 
 	function padZero(num){
@@ -64,7 +64,7 @@
 		var hexNormal =  padZero(currentHourBase16);
 			  hexNormal += padZero(currentMinuteBase16);
 			  hexNormal += padZero(currentSecondBase16);
-		
+
 		// find time percentages
 		// set up ms values
 		var msDay = 3600000 * 24;
@@ -84,7 +84,7 @@
 		var hexPercent =  padZero(percentOfDayCompleteBase16);
 				hexPercent += padZero(percentOfHourCompleteBase16);
 				hexPercent += padZero(percentOfMinuteCompleteBase16);
-		
+
 		return {
 						hexHourPercent: padZero(percentOfDayCompleteBase16),
 						hexMinutePercent: padZero(percentOfHourCompleteBase16),
@@ -113,7 +113,7 @@
 	}
 
 	function setColor() {
-		
+
 		var hrsText = hours.textContent;
 		var minText = minutes.textContent;
 		var secText = seconds.textContent;
@@ -143,7 +143,7 @@
 		if (numbersClock.classList.contains('showing')){
 			numbersClock.classList.remove('showing');
 			numbersClock.classList.add('hidden');
-			
+
 			if(hexClock.classList.contains('hidden')){
 				hexClock.classList.remove('hidden');
 				hexClock.classList.add('showing');
@@ -162,8 +162,8 @@
 			hexClock.classList.add('hidden');
 
 			if(numbersClock.classList.contains('hidden')){
-				numbersClock.classList.remove('hidden')
-				numbersClock.classList.add('showing');	
+				numbersClock.classList.remove('hidden');
+				numbersClock.classList.add('showing');
 			}
 
 		} else {
@@ -176,7 +176,7 @@
 // group all function calls into one function
 	function colorClock(){
 		displayTime();
-		displayTimeInHex()
+		displayTimeInHex();
 		setColor();
 		growSecondsBar();
 	}
@@ -190,5 +190,5 @@
 	clockBody.addEventListener('mouseover', switchToHexClockHandler);
 	clockBody.addEventListener('mouseout', switchToNumberClockHandler);
 
-	
+
 }());
