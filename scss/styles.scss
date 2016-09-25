@@ -8,10 +8,10 @@ body, h1 {
 }
 
 .wrapper {
-	positon: relative;
+	position: relative;
 	height: 100vh;
 	text-align: center;
-	transition: background-image 1000ms ease-in-out; 
+	transition: background-image 1000ms ease-in-out;
 }
 
 h1 {
@@ -72,4 +72,3 @@ h1 {
 	opacity: 1;
 	transition: opacity 200ms ease-in-out;
 }
-

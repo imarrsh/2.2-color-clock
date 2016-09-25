@@ -11,7 +11,7 @@ body, h1 {
   text-transform: uppercase; }
 
 .wrapper {
-  positon: relative;
+  position: relative;
   height: 100vh;
   text-align: center;
   transition: background-image 1000ms ease-in-out; }
