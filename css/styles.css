@@ -4,7 +4,8 @@
   src: url("../fonts/Action_Man-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Action_Man-webfont.woff") format("woff"), url("../fonts/Action_Man-webfont.ttf") format("truetype"), url("../fonts/Action_Man-webfont.svg#action_manregular") format("svg");
   font-weight: normal;
   font-style: normal; }
-body, h1 {
+body,
+h1 {
   margin: 0;
   padding: 0;
   font-family: 'action_manregular', 'Helvetica', sans-serif;
