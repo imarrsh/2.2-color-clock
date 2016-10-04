@@ -2,74 +2,74 @@
 
 body,
 h1 {
-	margin: 0;
-	padding: 0;
-	font-family: 'action_manregular', 'Helvetica', sans-serif;
-	text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  font-family: 'action_manregular', 'Helvetica', sans-serif;
+  text-transform: uppercase;
 }
-
+  
 .wrapper {
-	position: relative;
-	height: 100vh;
-	text-align: center;
-	transition: background-image 1000ms ease-in-out;
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  transition: background-image 1000ms ease-in-out;
 }
 
 h1 {
-	color: #ffffff;
-	text-align: center;
-	width: 80vw;
-	margin: 0 auto;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	span {
-		&:not(:first-child) {
-			&:before {
-				content: ':';
-				margin-right: 10%;
-				margin-left: 10%;
-			}
-		}
-	}
+  color: #ffffff;
+  text-align: center;
+  width: 80vw;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  span {
+    &:not(:first-child) {
+      &:before {
+        content: ':';
+        margin-right: 10%;
+        margin-left: 10%;
+      }
+    }
+  }
 }
 
 .clock-body {
-	font-size: 0;
-	#numbers-clock, #hex-clock {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 100%;
-	}
-	span {
-		line-height: 1.2;
-		display: inline-block;
-		font-size: 16vw;
-		font-weight: 600;
-	}
+  font-size: 0;
+  #numbers-clock, #hex-clock {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+  span {
+    line-height: 1.2;
+    display: inline-block;
+    font-size: 16vw;
+    font-weight: 600;
+  }
 }
 
 #seconds-bar {
-	margin: 25% auto 0;
-	background-color: #ffffff;
-	min-height: 3px;
-	width: 0;
-	border-radius: 2px;
-	transition: all 200ms ease-in-out;
+  margin: 25% auto 0;
+  background-color: #ffffff;
+  min-height: 3px;
+  width: 0;
+  border-radius: 2px;
+  transition: all 200ms ease-in-out;
 }
 .animating {
-	transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .hidden {
-	opacity: 0;
-	transition: opacity 200ms ease-in-out;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
 }
 
 .showing {
-	opacity: 1;
-	transition: opacity 200ms ease-in-out;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
 }
